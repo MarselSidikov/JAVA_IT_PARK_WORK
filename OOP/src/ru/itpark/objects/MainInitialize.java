@@ -1,5 +1,7 @@
-package ru.itpark;
+package ru.itpark.objects;
 
+
+import incapsulation.RationalNumber;
 
 public class MainInitialize {
 
@@ -31,6 +33,7 @@ public class MainInitialize {
         System.out.println("Average Regina: " + reginaAverage);
         alina.age = -10;
 
+        RationalNumber number = new RationalNumber();
         int i = 0;
     }
 }
