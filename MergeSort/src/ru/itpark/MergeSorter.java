@@ -26,6 +26,7 @@ public class MergeSorter {
      * @param higher - вернхняя граница подмассива
      */
     private void sort(int array[], int lower, int higher) {
+        LogUtils.log(array, "sort", lower, higher);
         // если у нас начало и конец совпали - останавливаем
         if (higher <= lower) {
             return;
@@ -34,12 +35,16 @@ public class MergeSorter {
         // вычисляем середину
         int middle = lower + (higher - lower) / 2;
 
+        LogUtils.indentUp();
+
         // сортируем левую половину
         sort(array, lower, middle);
         // сортируем правую половинку
         sort(array, middle + 1, higher);
         // сливаем
         merge(array, lower, middle, higher);
+
+        LogUtils.indentDown();
     }
 
 
@@ -78,6 +83,6 @@ public class MergeSorter {
                 i++;
             }
         }
-
+        LogUtils.log(array, "merge", lower, higher);
     }
 }
