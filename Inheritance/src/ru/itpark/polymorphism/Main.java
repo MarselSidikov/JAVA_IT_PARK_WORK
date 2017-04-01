@@ -1,8 +1,10 @@
 package ru.itpark.polymorphism;
 
-import ru.itpark.Animal;
-import ru.itpark.Cat;
-import ru.itpark.Koala;
+import ru.itpark.interfaces.Presentable;
+import ru.itpark.models.Animal;
+import ru.itpark.models.Cat;
+import ru.itpark.models.Human;
+import ru.itpark.models.Koala;
 
 /**
  * Created by User on 01.04.2017.
@@ -15,9 +17,9 @@ public class Main {
         }
     }
 
-    public static void present(Animal animals[]) {
-        for (int i = 0; i < animals.length; i++) {
-            System.out.println(animals[i].getName() + " " + animals[i].getWeight());
+    public static void present(Presentable presentables[]) {
+        for (int i = 0; i < presentables.length; i++) {
+            presentables[i].present();
         }
     }
 
@@ -37,7 +39,24 @@ public class Main {
                 catSharikoBoris };
 
         feedAnimals(animals);
-        present(animals);
+
+        Human humans[] = {
+                new Human("Marsel", 23),
+                new Human("Regina", 19),
+                new Human("Alina", 18)
+        };
+
+        Presentable animalsPresentable[] = {
+                koalaStalone,
+                catMurka,
+                koalaNorris,
+                catVasya,
+                koalaVanDamm,
+                catSharikoBoris
+        };
+
+        present(humans);
+        present(animalsPresentable);
 
     }
 }

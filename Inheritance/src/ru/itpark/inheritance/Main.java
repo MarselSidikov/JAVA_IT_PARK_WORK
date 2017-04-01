@@ -1,4 +1,8 @@
-package ru.itpark;
+package ru.itpark.inheritance;
+
+import ru.itpark.models.Animal;
+import ru.itpark.models.Cat;
+import ru.itpark.models.Koala;
 
 public class Main {
 

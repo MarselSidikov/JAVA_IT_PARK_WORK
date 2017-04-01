@@ -1,7 +1,7 @@
 package ru.itpark;
 
 public class Animal {
-    protected int weight;
+    private int weight;
     private String name;
 
     public Animal(int weight, String name) {
@@ -14,12 +14,12 @@ public class Animal {
         this.name = name;
     }
 
-    public void eat(int foodAmount) {
-        if (foodAmount >= 0) {
-            this.weight = this.weight + foodAmount;
-        } else {
-            this.weight = this.weight + 0;
-        }
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getWeight() {

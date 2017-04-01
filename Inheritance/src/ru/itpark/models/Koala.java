@@ -1,6 +1,8 @@
-package ru.itpark;
+package ru.itpark.models;
 
-public class Koala extends Animal {
+import ru.itpark.interfaces.Presentable;
+
+public class Koala extends Animal implements Presentable {
 
     private int sleepingHours;
 
@@ -22,11 +24,21 @@ public class Koala extends Animal {
         }
     }
 
+    public void present() {
+        System.out.println("I'm koala " + this.getName() + " and my weight is " + this.getWeight() +
+                " and my sleeping hours is " + this.getSleepingHours());
+    }
+
     public void eat(int foodAmount) {
         super.weight = super.weight + foodAmount * 2;
     }
 
     public int getSleepingHours() {
         return sleepingHours;
+    }
+
+    @Override
+    public void presentName() {
+        System.out.println(getName());
     }
 }
