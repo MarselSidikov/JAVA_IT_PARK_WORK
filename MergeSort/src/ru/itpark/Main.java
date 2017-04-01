@@ -3,11 +3,14 @@ package ru.itpark;
 public class Main {
 
     public static void main(String[] args) {
-	    int a[] = {2, 3, 6, 1, 2, 4, 8};
+    	// объявляем массив, который хотим отсортировать
+		int a[] = {4, -10, 11, 45, 0, -23, 35, 62, 11, 0, -9, 11, -3, 4, 5, 1};
 
+		// создаем объект класса, который отвечает за сортировку
 	    MergeSorter mergeSorter = new MergeSorter();
-	    mergeSorter.merge(a, 0, 2, 6);
-
+		// сортируем массив
+	    mergeSorter.sort(a);
+		// выводим на экран
 	    for (int i = 0; i < a.length; i++) {
 			System.out.print(a[i] + " ");
 		}
