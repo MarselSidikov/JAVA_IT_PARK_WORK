@@ -1,4 +1,4 @@
-package ru.itpark;
+package ru.itpark.unchecked;
 
 import java.util.Scanner;
 

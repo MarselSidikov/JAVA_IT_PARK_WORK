@@ -1,4 +1,4 @@
-package ru.itpark;
+package ru.itpark.unchecked;
 
 public class MainStackOverflowError {
     public static void rec() {

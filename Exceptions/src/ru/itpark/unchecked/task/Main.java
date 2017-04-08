@@ -1,4 +1,4 @@
-package ru.itpark.task;
+package ru.itpark.unchecked.task;
 
 import java.util.Scanner;
 

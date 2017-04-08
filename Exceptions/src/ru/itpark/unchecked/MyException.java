@@ -1,4 +1,4 @@
-package ru.itpark;
+package ru.itpark.unchecked;
 
 /**
  * Created by Student21 on 08.04.2017.
