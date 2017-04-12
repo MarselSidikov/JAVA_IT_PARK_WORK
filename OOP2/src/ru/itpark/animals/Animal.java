@@ -23,6 +23,7 @@ public class Animal {
         return this.weight;
     }
 
+
     public String toString() {
         return this.name + " " + this.weight;
     }

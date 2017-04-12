@@ -11,10 +11,12 @@ public class Main3 {
         Koala koala2 = new Koala("Koala2", 1, 7);
         Tiger tiger2 = new Tiger("Tiger2", 6, 5);
         Koala koala3 = new Koala("Koala3", 5, 6);
-
+        // восходящее преобразование
         Animal animal = koala;
-
-        Animal animals[] = {koala, tiger, koala2, tiger2, koala};
+        // я могу создать массив сущностей типа Animal, а класть
+        // туда конкретные объекты
+        // int a[] = {4, 5, 6];
+        Animal animals[] = {koala, tiger, koala2, tiger2, koala3};
 
         for (int i = animals.length - 1; i >= 0; i--) {
             for (int j = 0; j < i; j++) {

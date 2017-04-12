@@ -4,10 +4,10 @@ package ru.itpark;
  * Created by admin on 11.04.2017.
  */
 public class Rectangle extends AbstractFigure {
-
+    // две стороны
     private int a;
     private int b;
-
+    // конструктор
     public Rectangle(int a, int b) {
         this.a = a;
         this.b = b;

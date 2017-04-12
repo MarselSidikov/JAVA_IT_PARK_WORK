@@ -1,6 +1,6 @@
 package ru.itpark.animals;
 
-import ru.itpark.Presentable;
+import ru.itpark.interfaces.Presentable;
 
 public class Tiger extends Animal implements Presentable {
     private int distance;
@@ -9,7 +9,7 @@ public class Tiger extends Animal implements Presentable {
         super(name, weight);
         if (distance >= 0) {
             this.distance = distance;
-        } else distance = 1;
+        } else this.distance = 1;
     }
 
     public int getDistance() {
