@@ -1,5 +1,5 @@
 package ru.itpark;
 
-public interface Comparator {
-    int compare(Object a, Object b);
+public interface Comparator<T> {
+    int compare(T a, T b);
 }

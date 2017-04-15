@@ -1,0 +1,4 @@
+Rec1 10 2
+Rec2 2 10
+Triangle1 5 1 2
+Triangle2 1 1 1

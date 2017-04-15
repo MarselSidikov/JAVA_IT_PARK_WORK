@@ -1,6 +1,6 @@
 package ru.itpark;
 
-public class Human implements Comparable {
+public class Human implements Comparable<Human> {
     private int id;
     private String name;
     private int age;
@@ -38,7 +38,7 @@ public class Human implements Comparable {
      * @return отрицательное значение, если сравниваемый объект меньше that
      * 0 - если объекты равны
      * положительное - если объект больше
-     */
+     *
     public int compareTo(Object object) {
         if (object instanceof Human) {
             Human that = (Human)object;
@@ -47,5 +47,10 @@ public class Human implements Comparable {
             System.err.println("Cannot cast to Human");
             return 0;
         }
+    }*/
+
+    @Override
+    public int compareTo(Human that) {
+        return this.age - that.age;
     }
 }

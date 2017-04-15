@@ -1,6 +1,6 @@
 package ru.itpark;
 
 
-public interface Comparable {
-    int compareTo(Object object);
+public interface Comparable<T> {
+    int compareTo(T that);
 }

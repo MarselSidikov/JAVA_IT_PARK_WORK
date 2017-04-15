@@ -1,4 +1,4 @@
-package ru.itpark;
+package ru.itpark.streams;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

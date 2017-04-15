@@ -4,8 +4,6 @@ import java.util.Objects;
 
 public class Main {
 
-
-
     /**
     public static void sort(Human[] humans) {
         for (int i = humans.length - 1; i >= 0; i--) {
