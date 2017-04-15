@@ -13,5 +13,6 @@ public class Main {
          * у них одинаковый тип и одинаковые площадь и периметр
          * удалить - сделать null
          */
+        System.out.println("Hello");
     }
 }
