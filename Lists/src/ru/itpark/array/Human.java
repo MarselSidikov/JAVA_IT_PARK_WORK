@@ -1,4 +1,4 @@
-package ru.itpark;
+package ru.itpark.array;
 
 public class Human {
   private String name;

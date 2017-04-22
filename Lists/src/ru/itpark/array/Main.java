@@ -1,9 +1,10 @@
-package ru.itpark;
+package ru.itpark.array;
 
 public class Main {
 
     public static void main(String[] args) {
-	      IntegerArrayList arrayList = new IntegerArrayList();
+
+        IntegerArrayList arrayList = new IntegerArrayList();
         arrayList.add(2);
         arrayList.add(3);
 
@@ -43,18 +44,18 @@ public class Main {
         humansObjectsList.add(b);
 //        Human someHumanFromList = (Human)humansObjectsList.get(3);
 
-        GenericArrayList<Human> humanGenericArrayList = new GenericArrayList<>();
-        humanGenericArrayList.add(marsel);
-        humanGenericArrayList.add(regina);
-        humanGenericArrayList.add(alina);
-        // humanGenericArrayList.add(a);
+        ArrayList<Human> humanArrayList = new ArrayList<>();
+        humanArrayList.add(marsel);
+        humanArrayList.add(regina);
+        humanArrayList.add(alina);
+        // humanArrayList.add(a);
 
-        GenericArrayList<Rectangle> rectangleGenericArrayList = new GenericArrayList<>();
-        rectangleGenericArrayList.add(a);
-        rectangleGenericArrayList.add(b);
-        // rectangleGenericArrayList.add(regina);
+        ArrayList<Rectangle> rectangleArrayList = new ArrayList<>();
+        rectangleArrayList.add(a);
+        rectangleArrayList.add(b);
+        // rectangleArrayList.add(regina);
 
-        Human marselFromList = humanGenericArrayList.get(0);
+        Human marselFromList = humanArrayList.get(0);
 
     }
 }

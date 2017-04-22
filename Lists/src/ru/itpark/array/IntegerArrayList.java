@@ -1,4 +1,4 @@
-package ru.itpark;
+package ru.itpark.array;
 
 public class IntegerArrayList {
   private final int MAX_SIZE = 5;
