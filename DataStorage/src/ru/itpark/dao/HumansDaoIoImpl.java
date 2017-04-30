@@ -6,6 +6,7 @@ import ru.itpark.models.Human;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 public class HumansDaoIoImpl implements HumansDao {
 
@@ -83,5 +84,10 @@ public class HumansDaoIoImpl implements HumansDao {
     @Override
     public void delete(int id) {
 
+    }
+
+    @Override
+    public LinkedList<Human> findAll() {
+        return null;
     }
 }
