@@ -1,0 +1,1 @@
+UPDATE auto SET model = 'BATMOBILE' WHERE id = 1;

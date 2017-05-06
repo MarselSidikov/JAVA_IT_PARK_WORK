@@ -1,0 +1,15 @@
+INSERT INTO auto(model, owner_id) VALUES('Toyota', 1);
+INSERT INTO auto(model, owner_id) VALUES('Infinity', 1);
+INSERT INTO auto(model, owner_id) VALUES('Lada', 2);
+INSERT INTO auto(model, owner_id) VALUES('Jaguar', 2);
+INSERT INTO auto(model, owner_id) VALUES('BMW', 3);
+INSERT INTO auto(model, owner_id) VALUES('Ford', 4);
+INSERT INTO auto(model, owner_id) VALUES('WW', 5);
+INSERT INTO auto(model, owner_id) VALUES('KIA', 6);
+INSERT INTO auto(model, owner_id) VALUES('OPEL', 7);
+INSERT INTO auto(model, owner_id) VALUES('Honda', 7);
+INSERT INTO auto(model, owner_id) VALUES('Mersedes', 7);
+INSERT INTO auto(model, owner_id) VALUES('Hyundai', 8);
+INSERT INTO auto(model, owner_id) VALUES('KAMAZ', 8);
+INSERT INTO auto(model, owner_id) VALUES('Subaru', 9);
+INSERT INTO auto(model, owner_id) VALUES('Volga', 10);
