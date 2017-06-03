@@ -1,17 +1,15 @@
 package ru.itpark.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import ru.itpark.models.Auto;
 import ru.itpark.models.User;
 import ru.itpark.services.UsersService;
 
 import java.util.List;
 
 @RestController
-public class SimpleController {
+public class RestUsersController {
 
     @Autowired
     private UsersService service;
@@ -24,6 +22,12 @@ public class SimpleController {
     @GetMapping(value = "users/{user-id}", params = "select=with_auto")
     public User getUserWithAuto(@PathVariable("user-id") int userId) {
         return service.getUserWithAuto(userId);
+    }
+
+    @PostMapping(value = "users/{user-id}/autos")
+    public Integer addAutoToUser(@PathVariable("user-id") int userId,
+                              @RequestBody Auto auto) {
+        return service.addAutoToUser(userId, auto);
     }
 
 }

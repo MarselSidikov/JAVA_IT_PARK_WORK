@@ -29,7 +29,6 @@
             </plugin>
         </plugins>
     </build>
-
     <dependencies>
         <dependency>
             <groupId>ru.itpark</groupId>
@@ -37,4 +36,5 @@
             <version>0.1</version>
         </dependency>
     </dependencies>
+
 </project>

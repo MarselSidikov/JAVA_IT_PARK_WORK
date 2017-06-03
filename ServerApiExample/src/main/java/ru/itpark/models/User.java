@@ -1,11 +1,26 @@
 package ru.itpark.models;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "it_park_user")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
     private String name;
+    @Column
     private int age;
+
+    @OneToMany
+    @JoinTable(name = "auto",
+            joinColumns =
+            @JoinColumn(name = "owner_id"),
+            inverseJoinColumns =
+            @JoinColumn(name = "id"))
     private List<Auto> autos;
 
     public User() {

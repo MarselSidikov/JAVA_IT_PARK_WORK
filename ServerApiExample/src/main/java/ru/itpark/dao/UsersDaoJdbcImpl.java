@@ -109,9 +109,13 @@ public class UsersDaoJdbcImpl implements UsersDao {
 
     @Override
     public List<User> findAllByAge(int age) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("age", age);
-        return template.query(SQL_SELECT_USERS_BY_AGE, params, userRowMapper);
+        Session session = getSession();
+        session.beginTransaction();
+
+        List<User> users = session.createQuery("from User user where user.age = :age", User.class)
+                        .setParameter("age", age).list();
+        session.getTransaction().commit();
+        return users;
     }
 
     @Override
