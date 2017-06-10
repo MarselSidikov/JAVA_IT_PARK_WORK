@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import ru.itpark.models.User;
 
 import javax.sql.DataSource;
+import java.io.BufferedOutputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -139,5 +140,7 @@ public class UsersDaoJdbcImpl implements UsersDao {
         }
 
         return session;
+
+        BufferedOutputStream
     }
 }

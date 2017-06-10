@@ -1,18 +1,12 @@
 package ru.itpark.vk.client.controllers;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.NodeOrientation;
-import javafx.geometry.Orientation;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import ru.itpark.vk.api.core.ApiBuilder;
 import ru.itpark.vk.api.core.VkApi;
-import ru.itpark.vk.client.tasks.LoadFriendsTask;
 import ru.itpark.vk.models.Friend;
 
 import java.util.ArrayList;
@@ -38,9 +32,25 @@ public class MainWindowController {
         vkApi = ApiBuilder.buildRestTemplateApi();
 
         buttonFriends.setOnAction(event -> {
-            LoadFriendsTask task = new LoadFriendsTask(
-                    countFriends, panes, vkApi, pane);
-            task.start();
+            int countOfFriends = Integer.parseInt(countFriends.getText());
+            pane.getChildren().removeAll(panes);
+            List<Friend> friends = vkApi
+                    .getUserFriends(176050764, countOfFriends, "photo_200_orig");
+            double lastY = 0;
+            VBox vBox = new VBox();
+            ScrollPane scrollPane = new ScrollPane(vBox);
+            for (Friend friend : friends) {
+                ImageView imageView = new ImageView(friend.getPhoto());
+                TitledPane friendPane = new TitledPane(friend.getFirstName() +
+                        " " + friend.getLastName(), imageView);
+                friendPane.setLayoutY(lastY);
+                lastY = lastY + imageView.getImage().getHeight();
+                friendPane.setExpanded(false);
+                panes.add(friendPane);
+                vBox.getChildren().add(friendPane);
+            }
+            scrollPane.setFitToHeight(true);
+            pane.getChildren().add(scrollPane);
         });
     }
 }

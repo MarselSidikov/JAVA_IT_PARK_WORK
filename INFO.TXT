@@ -1150,6 +1150,151 @@ params = "select=with_auto")
 Конфигурация сервлетов:
 - раньше - web.xml
 - теперь - AppInit
+-----------------
+Коллекции в Java:
+Иерархия коллекций
+
+Iterable<T> - интерфейс,      Map<K,V> - интерфейс
+позволяющий итерировать 
+коллекции(проходить 
+по одному элементу)
+	^
+	|
+	|
+Collection<E> - интерфейс,
+позволяет добавить элемент
+в коллекцию
+boolean add(E e);
+    ^
+	|
+	|
+List<E> - интерфейс,
+помимо функционала коллекций,
+предоставляющий функционал получения
+элемента по индексу
+E get(int index);
+	^
+	|
+	|
+ArrayList<T> - класс, 
+представляющий собой список
+на основе массива.
+ОСНОВНАЯ ОСОБЕННОСТЬ:
+автоувеличение
+Разбор класса ArrayList
+Поля:
+Object[] elementData;
+- хранилище данных
+private int size; 
+- количество заполненных ячеек массива
+private static final int DEFAULT_CAPACITY = 10;
+- по умолчанию 10 элементов в массиве
+Методы:
+public void add(E e) -
+метод добавления элемента
+в массив
+public boolean add(E e) {
+		// работа с увеличением размера массива
+		// обеспечить емкость для добавление нового элемента
+        ensureCapacityInternal(size + 1);  // Increments modCount!!
+        // кладем элемент в массив
+		elementData[size++] = e;
+		// возвращаем результат об успехе
+        return true;
+    }
+
+// метод обеспечения емкости
+// минимально необходимая емкость
+private void ensureCapacityInternal(int minCapacity) {
+		// если элементов вообще нет
+        // говорим, что теперь минимальная емкость это
+		// либо 10, либо требуемая, если она больше
+		if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
+            minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);
+        }
+		// обеспечить реально-необходимую емкость
+        ensureExplicitCapacity(minCapacity);
+    }
+
+
+ private void ensureExplicitCapacity(int minCapacity) {
+        // забить на эту инструкцию
+		modCount++;
+
+        // считаем разницу между 
+		// необходимым объемом
+		// и сколько есть
+        if (minCapacity - elementData.length > 0)
+            grow(minCapacity);
+    }
+
+	// функция увеления размера массива
+	private void grow(int minCapacity) {
+        // запоминаем старый объем
+        int oldCapacity = elementData.length;
+		// высчитываем новый объем - в полтора раза больше предыдущего
+        int newCapacity = oldCapacity + (oldCapacity >> 1);
+        // если новый объем оказался меньше
+		// необходимого, то новый объем = необходимый
+		if (newCapacity - minCapacity < 0)
+            newCapacity = minCapacity;
+		// если новый объем больше максимального размера массива
+        if (newCapacity - MAX_ARRAY_SIZE > 0)
+            newCapacity = hugeCapacity(minCapacity);
+        // minCapacity is usually close to size, so this is a win:
+        // копирование старых данных в массив бОльшей размерности
+		// copyOf вызывает функцию System.arraycopy - нативная, поэтому выполняется быстро
+		elementData = Arrays.copyOf(elementData, newCapacity);
+    }
+	
+	private static int hugeCapacity(int minCapacity) {
+        // если размер меньше нуля
+		if (minCapacity < 0) // overflow
+		// выбрасывается ошибка
+            throw new OutOfMemoryError();
+        // в противном случае
+		// возвращается либо максимальное значение Integer
+		// либо максимально-возможный размер массива
+		// тернарный условный оператор
+		return (minCapacity > MAX_ARRAY_SIZE) ?
+            Integer.MAX_VALUE :
+            MAX_ARRAY_SIZE;
+    }
+-------------------------
+https://github.com/MarselSidikov/CINEMA/wiki/DataBase
+
+ЗАДАЧА:
+1) Считать числа n и k.
+n - длина массива, k - количество потоков.
+Массив заполнить случайными числами от 0 до 100
+2) Посчитать сумму всех элементов массива с помощью k-потоков.
+Каждый поток суммирует свою область массива.
+3) Рекомендации:
+1. Описать свой класс потока
+2. Массив и переменную для результата сделать глобальными на уровне Main
+3. Обеспечить синхронизацию в момент записи значения в переменную результата.
+4. Использовать join для каждого потока, чтобы Main им не мешал
+5. Формула расчета диапазона значений:
+Для каждого i-го потока:
+start = i * (n / k)
+end = start + (n / k)
+Для k-1 потока
+start = (k-1) * (n/k)
+end = n;
+6. Для синхронизации использовать Lock
+lock.lock();
+r = r + a[i];
+lock.unlock();
+
+
+
+
+
+
+
+
+
+
 
 
 
