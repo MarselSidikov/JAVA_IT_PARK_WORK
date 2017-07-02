@@ -2,7 +2,11 @@ package ru.itpark.controllers;
 
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.itpark.dto.UserDataForRegistrationDto;
 import ru.itpark.dto.UserDto;
 import ru.itpark.service.UsersService;
 import ru.itpark.service.UsersServiceImpl;
@@ -34,5 +38,19 @@ public class UsersController {
     public UserDto updatePassword(@PathVariable("user-id") int userId,
                                   @RequestHeader("new_password") String newPassword) {
         return usersService.updatePassword(userId, newPassword);
+    }
+
+    @PostMapping("/users")
+    public UserDto register(@RequestBody UserDataForRegistrationDto registrationData) {
+        return usersService.registerUser(registrationData);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Object> login(@RequestHeader("password") String password,
+                                        @RequestHeader("login") String login) {
+        String token = usersService.login(login, password);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Auth-Token", token);
+        return new ResponseEntity<>(null, headers, HttpStatus.ACCEPTED);
     }
 }

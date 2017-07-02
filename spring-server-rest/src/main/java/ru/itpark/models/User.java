@@ -15,8 +15,8 @@ public class User {
     @Column
     private String login;
 
-    @Column
-    private String password;
+    @Column(name = "password_hash")
+    private String passwordHash;
 
     @Column
     private int age;
@@ -30,9 +30,16 @@ public class User {
     public User() {
     }
 
-    public User(String login, String password, int age, String name, String token) {
+    public User(String login, String passwordHash, int age, String name) {
         this.login = login;
-        this.password = password;
+        this.passwordHash = passwordHash;
+        this.age = age;
+        this.name = name;
+    }
+
+    public User(String login, String passwordHash, int age, String name, String token) {
+        this.login = login;
+        this.passwordHash = passwordHash;
         this.age = age;
         this.name = name;
         this.token = token;
@@ -54,12 +61,12 @@ public class User {
         this.login = login;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 
     public int getAge() {
@@ -94,14 +101,14 @@ public class User {
         return id == user.id &&
                 age == user.age &&
                 Objects.equal(login, user.login) &&
-                Objects.equal(password, user.password) &&
+                Objects.equal(passwordHash, user.passwordHash) &&
                 Objects.equal(name, user.name) &&
                 Objects.equal(token, user.token);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, login, password, age, name, token);
+        return Objects.hashCode(id, login, passwordHash, age, name, token);
     }
 
     @Override
@@ -109,7 +116,7 @@ public class User {
         return MoreObjects.toStringHelper(this)
                 .add("id", id)
                 .add("login", login)
-                .add("password", password)
+                .add("passwordHash", passwordHash)
                 .add("age", age)
                 .add("name", name)
                 .add("token", token)
