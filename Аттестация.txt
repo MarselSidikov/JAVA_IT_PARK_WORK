@@ -1,0 +1,40 @@
+1. Инфраструктура java
+ - JVM, JDK, JRE, java, javac, .java, .class
+2. Система типов java
+ - примтивные типы, ссылочные типы, размеры типов, различия между типами, явное и неявное приведения
+3. Массивы
+ - понятие массива, размер массива, варианты инициализации,размер массива, сортировки (вставками, пузырьком)
+4. Подпрограммы
+ - функции, процедуры, формальные параметры, аргументы, различия между функциями и процедурами
+5. ООП
+ - инкапсуляция, наследование, полиморфизм, классы, объекты, интерфейсы, абстрактные классы, финальные классы, поля, методы, геттеры/сеттеры, конструкторы, статические члены класса и статические инициализаторы, модификаторы доступа, уровни доступа, константы внутри классов, восходящее преобразование
+6. Класс Object
+ - описание класса, toString, equals, hashCode
+7. Java IO
+ - Reader, Writer, InputStream, OutputStream, + работа с файлами с помощью BufferedReader
+8. Java Collections
+ - Iterator, Iterable, ArrayList, LinkedList, List, Map, HashMap, Set, Hashset.
+9. Comparator и Comparable
+10. Threads
+ - Понятие потока и процесса, кеширование примитивных типов и модификатор volatile, создание пользовательских потоков, Runnable и Thread, join, sleep, wait, notify, notifyAll, synchronized, Deadlock
+11. Web + Java
+- протокол http, клиент-серверная архитектура, сервлеты, контейнеры сервлетов, jsp
+12. БД + Java
+- понятие бд, таблицы, первычные ключы, внешние ключи, строки и столбцы, связи между таблицами. Технология jdbc
+13. Spring 
+- понятие бинов, понятие DI, понятие IoC-контейнера, область видимости бинов (bean scope), ApplicationContext, @Bean, @Autowired, @ComponentScan, @Component, xml-конфигурация
+14. Maven,git, junit
+- для чего нужно, основные понятия
+15. Spring Web 
+- @Controller, @RestController, @RequestBody, @ResponseBody, ResponseEntity, @PathVariable, @RequestParam, @RequestHeader, диспатчер-сервлет, ModelAndView + Freemarker
+16.JavaFx
+- @FXML, понятие JavaFX
+
+
+
+
+
+
+
+
+
