@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.itpark.models.User;
 import ru.itpark.services.UsersService;
@@ -23,6 +24,11 @@ public class FreemarkerController {
         List<User> users = usersService.getUsersByAge(age);
         model.addAttribute("users", users);
         return "users";
+    }
+
+    @GetMapping(value = "/some")
+    public void some(@RequestParam("name") String name, @RequestParam("age") int age) {
+        System.out.println(name + age);
     }
 
 }

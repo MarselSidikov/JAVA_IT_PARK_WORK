@@ -140,7 +140,5 @@ public class UsersDaoJdbcImpl implements UsersDao {
         }
 
         return session;
-
-        BufferedOutputStream
     }
 }
